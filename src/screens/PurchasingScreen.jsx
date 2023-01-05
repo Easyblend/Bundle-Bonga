@@ -5,11 +5,10 @@ import LogoIcon from "../assets/svg/Logo";
 import { Link, NavLink } from "react-router-dom";
 import { auth } from "../FirebaseConfigure";
 import { db } from "../FirebaseConfigure";
-import { collection, addDoc, Transaction } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import PaystackPop from "@paystack/inline-js";
 import { onAuthStateChanged } from "firebase/auth";
-import { async } from "@firebase/util";
 
 const PurchasingScreen = () => {
   const [price, setPrice] = useState(5);
@@ -21,6 +20,8 @@ const PurchasingScreen = () => {
   const [UID, setUID] = useState("");
 
   const navigate = useNavigate();
+
+  const [purchase, setPurchased] = useState(false);
 
   const paystack = new PaystackPop();
   const checkUser = () => {
@@ -40,8 +41,8 @@ const PurchasingScreen = () => {
 
     if (user) {
       paystack.newTransaction({
-        key: process.env
-          .REACT_APP_PAYSTACK_KEY /*"pk_test_26dc23e6eff2d80b88ef3dd7768062b646b2feb1"*/,
+        // key: process.env.REACT_APP_PAYSTACK_KEY ,
+        key: "pk_test_26dc23e6eff2d80b88ef3dd7768062b646b2feb1",
         email: email,
         amount: price * 100,
         onSuccess: async () => {
@@ -53,9 +54,13 @@ const PurchasingScreen = () => {
               price: price,
             });
             console.log("Document written with ID: ", docRef.id);
+            setPurchased(true);
           } catch (e) {
             console.error("Error adding document: ", e);
           }
+        },
+        onCancel: () => {
+          alert("Aborting Payment");
         },
       });
     } else {
@@ -79,11 +84,7 @@ const PurchasingScreen = () => {
             <div className=" my-auto mt-5 mx-auto">
               <img src={image} alt="IMG" />
               <div className="text-center mx-auto d-flex justify-content-center mb-5">
-                <Link
-                  className="pointer flexNullCenter"
-                  to="home"
-                  smooth={true}
-                >
+                <div className="pointer flexNullCenter">
                   <LogoIcon />
                   <h1
                     style={{ marginLeft: "15px" }}
@@ -91,7 +92,7 @@ const PurchasingScreen = () => {
                   >
                     Bundle Bonga
                   </h1>
-                </Link>
+                </div>
               </div>
             </div>
 
@@ -118,12 +119,15 @@ const PurchasingScreen = () => {
                   required
                   onChange={(e) => setPrice(e.target.value)}
                 >
-                  <option value={5}>Regular Daily @ 6.0GB</option>
-                  <option value={7}>VVIP Daily @ 9.0GB</option>
-                  <option value={10}>VIP daily @ 12GB</option>
-                  <option value={15}>3-Days package @ 18.0GB</option>
-                  <option value={25}>VIP Weekly @ 27.0GB</option>
-                  <option value={50}>Super Monthly @ 36.0GB</option>
+                  <option value={5}>2 days Package 3.5GB</option>
+                  <option value={9}>2 days Package 7.0GB</option>
+                  <option value={10}>2 Days Package 9.0GB</option>
+                  <option value={15}>Weekly package 10.5GB</option>
+                  <option value={21}>Weekly package 27.0GB</option>
+                  <option value={100}>Super Monthly 105.0GB</option>
+                  <option value={150}>Super Monthly 270.0GB</option>
+                  <option value={50}>Downloading Bundle 90.0GB</option>
+                  <option value={20}>Downloading Bundle 27.0GB</option>
                 </select>
               </div>
               <div className="wrap-input100 validate-input">
@@ -179,7 +183,15 @@ const PurchasingScreen = () => {
                   Purchase Package{" "}
                 </button>
               </div>
-              <p className="text-center text-primary mt-3 fw-bold">
+              {purchase ? (
+                <p className="text-center fs-5 text-primary fw-bold ">
+                  Thanks for purchasing, you should recieved it in less than 10
+                  minutes
+                </p>
+              ) : (
+                ""
+              )}
+              <p className="text-center text-secondary mt-3 fw-bold">
                 Ensure The receiving Phone Number is valid before proceeding
               </p>
             </form>

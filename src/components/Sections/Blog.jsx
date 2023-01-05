@@ -30,28 +30,28 @@ export default function Blog() {
           <div className="row textCenter">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <BlogBox
-                title="Regular Daily 6.0GB "
-                text="Get 6 GB worth of data. Lasts for maximun of 2 days and minimum of 1 day"
+                title="2 days Package 3.5GB "
+                text="Get 3.5 GB worth of data. Lasts for maximun of 2 days "
                 tag="5.00 GHC"
-                author="Duration 1-2 days"
+                author="Duration 2 days"
                 action={() => navigate("/purchase")}
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <BlogBox
-                title="VIP Daily 12.0GB"
-                text="Get 12 GB worth of data. Lasts for maximun of 2 days and minimum of 1 day"
+                title="2 days Package 7.0GB"
+                text="Get 7 GB worth of data. Lasts for maximun of 2 days "
+                tag="9.00 GHC"
+                author="Duration 2 days"
+                action={() => navigate("/purchase")}
+              />
+            </div>
+            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <BlogBox
+                title="2 Days Package 9.0GB"
+                text="Get 9 GB worth of data. Lasts for maximun of 2 days "
                 tag="10.00 GHC"
-                author="Duration 1-2 days"
-                action={() => navigate("/purchase")}
-              />
-            </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-              <BlogBox
-                title="3-Days Package 18.0GB"
-                text="Get 6 GB worth of data. Each day for 3 days. Lasts for maximun of 5 days and minimum of 3 day"
-                tag="15.00 GHC"
-                author="Duration 3-4 days"
+                author="Duration 2 days"
                 action={() => navigate("/purchase")}
               />
             </div>
@@ -59,28 +59,55 @@ export default function Blog() {
           <div className="row textCenter">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <BlogBox
-                title="VVIP Daily 9.0GB"
-                text="Get 9 GB worth of data. Lasts for maximun of 2 days and minimum of 1 day"
-                tag="7.00 GHC"
-                author="Duration 1-2 days"
+                title="Weekly package 10.5GB"
+                text="Get 10.5 GB worth of data. 3.5GB two days each. Lasts for maximun of 6 days"
+                tag="15.00 GHC"
+                author="Duration 6 days"
                 action={() => navigate("/purchase")}
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <BlogBox
-                title="VIP Weekly 27.0GB"
-                text="you get 9GB each day for three days in a week. Bundle does not role over. LAsts for a week"
-                tag="25.00 GHC"
-                author="Duration Exactly 1 week"
+                title="Weekly package 27.0GB"
+                text="Get 27 GB worth of data. 9GB for 3 days in a week. Lasts for maximun of 6 days"
+                tag="21.00 GHC"
+                author="Duration 6 days"
                 action={() => navigate("/purchase")}
               />
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
               <BlogBox
-                title="Super Monthly 36.0GB"
-                text="You get 9GB worth of data each week for a month. Lasts for a maximum of 1 month"
+                title="Super Monthly 105.0GB"
+                text="You get 3.5GB worth of data each day for a month. Lasts for a maximum of 1 month"
+                tag="100.00 GHC"
+                author="Duration 30 days"
+                action={() => navigate("/purchase")}
+              />
+            </div>
+            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <BlogBox
+                title="Super Monthly 270.0GB"
+                text="You get 9GB worth of data each day for a month. Lasts for a maximum of 1 month"
+                tag="150.00 GHC"
+                author="Duration 30 days"
+                action={() => navigate("/purchase")}
+              />
+            </div>
+            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <BlogBox
+                title="Downloading Bundle 90.0GB"
+                text="You get 90GB worth of data for 2 day.Lasts for a maximum of 2 days"
                 tag="50.00 GHC"
-                author="Duration 1 month "
+                author="Duration 2 days"
+                action={() => navigate("/purchase")}
+              />
+            </div>
+            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              <BlogBox
+                title="Downloading Bundle 27.0GB"
+                text="You get 27GB worth of data for 2 day.Lasts for a maximum of 2 days"
+                tag="20.00 GHC"
+                author="Duration 2 days"
                 action={() => navigate("/purchase")}
               />
             </div>
